@@ -1,0 +1,69 @@
+import com.yvkalume.buildsrc.Deps
+import com.yvkalume.buildsrc.App
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion App.compileSdkVersion
+    buildToolsVersion App.buildToolsVersion
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    defaultConfig {
+        applicationId "com.yvkalume.dcplus"
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(":model")
+    implementation Deps.Kotlin.stdlib
+    implementation Deps.AndroidX.core
+    implementation Deps.AndroidX.appcompat
+    implementation Deps.AndroidX.constraintLayout
+    implementation Deps.AndroidX.legacy
+    testImplementation Deps.AndroidX.Test.junit
+    androidTestImplementation Deps.AndroidX.Test.ext
+    androidTestImplementation Deps.AndroidX.Test.Espresso.core
+
+    implementation Deps.material
+    implementation Deps.roundedImageview
+    implementation Deps.viewBinding
+
+    implementation Deps.AndroidX.Navigation.fragment
+    implementation Deps.AndroidX.Navigation.ui
+    implementation Deps.AndroidX.Navigation.test
+
+    implementation Deps.Groupie.core
+    implementation Deps.Groupie.viewBinding
+}
