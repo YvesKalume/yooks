@@ -59,6 +59,7 @@ dependencies {
     implementation Deps.material
     implementation Deps.roundedImageview
     implementation Deps.viewBinding
+    implementation Deps.blurry
 
     implementation Deps.AndroidX.Navigation.fragment
     implementation Deps.AndroidX.Navigation.ui
