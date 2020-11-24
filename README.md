@@ -1,1 +1,1 @@
-"#dc-plus-android" 
+#dc-plus-android
