@@ -10,10 +10,10 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/appCompatImageView"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_width="120dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
-            app:riv_corner_radius="16dp"
+            app:riv_corner_radius="8dp"
             android:src="@drawable/chilla"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
