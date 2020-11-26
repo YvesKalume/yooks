@@ -19,4 +19,14 @@
         android:name="com.yvkalume.dcplus.ui.preview.PreviewFragment"
         android:label="fragment_preview"
         tools:layout="@layout/fragment_preview" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.yvkalume.dcplus.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.yvkalume.dcplus.ui.favorites.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

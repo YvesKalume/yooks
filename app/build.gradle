@@ -42,6 +42,10 @@ android {
     androidExtensions {
         experimental = true
     }
+
+    viewBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -52,6 +56,7 @@ dependencies {
     implementation Deps.AndroidX.appcompat
     implementation Deps.AndroidX.constraintLayout
     implementation Deps.AndroidX.legacy
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation Deps.AndroidX.Test.junit
     androidTestImplementation Deps.AndroidX.Test.ext
     androidTestImplementation Deps.AndroidX.Test.Espresso.core
