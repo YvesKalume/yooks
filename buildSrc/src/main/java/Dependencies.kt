@@ -5,6 +5,7 @@ object App {
     const val buildToolsVersion = "30.0.2"
     const val minSdkVersion = 21
     const val targetSdkVersion = 30
+    const val jvmTarget = "1.8"
 }
 
 object Plugin {
@@ -31,6 +32,7 @@ object Deps {
     const val formValidator = "com.github.ShabanKamell.FormValidator:core:2.1.0"
     const val blurry = "jp.wasabeef:blurry:4.0.0"
     const val blurBehind = "no.danielzeller.blurbehindlib:blurbehindlib:1.0.0"
+    const val imageSlider = "com.github.smarteist:autoimageslider:1.4.0"
 
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
