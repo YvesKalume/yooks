@@ -18,7 +18,8 @@ object Version {
 }
 
 object Module {
-
+    const val model = ":model"
+    const val util = ":util"
 }
 
 object Deps {

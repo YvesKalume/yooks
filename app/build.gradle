@@ -1,5 +1,6 @@
 import com.yvkalume.buildsrc.Deps
 import com.yvkalume.buildsrc.App
+import com.yvkalume.buildsrc.Module
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -50,8 +51,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(":model")
-    implementation project(":util")
+    implementation project(Module.model)
+    implementation project(Module.util)
     implementation Deps.Kotlin.stdlib
     implementation Deps.AndroidX.core
     implementation Deps.AndroidX.appcompat
