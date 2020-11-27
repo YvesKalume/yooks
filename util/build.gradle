@@ -1,23 +1,26 @@
+import com.yvkalume.buildsrc.App
+import com.yvkalume.buildsrc.Deps
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion App.compileSdkVersion
+    buildToolsVersion App.buildToolsVersion
 
     buildFeatures {
         dataBinding true
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = App.jvmTarget
     }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -44,11 +47,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation Deps.Kotlin.stdlib
+    implementation Deps.AndroidX.core
+    implementation Deps.AndroidX.appcompat
+    testImplementation Deps.AndroidX.Test.junit
+    androidTestImplementation Deps.AndroidX.Test.ext
+    androidTestImplementation Deps.AndroidX.Test.Espresso.core
 
 }
