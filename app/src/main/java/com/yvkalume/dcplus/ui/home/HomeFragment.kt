@@ -12,6 +12,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
 import com.yvkalume.dcplus.R
+import com.yvkalume.dcplus.adapter.ImageSliderAdapter
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
 import com.yvkalume.dcplus.getGenres
 import com.yvkalume.dcplus.getTrends
@@ -67,11 +68,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val genreAdapter = GroupAdapter<GroupieViewHolder>()
 
+    private val sliderAdapter = ImageSliderAdapter()
     private fun populateTrendingList(data: List<Serie>) {
+        for (i in 1..5) {
+            sliderAdapter.addItem("item")
+        }
         val trendingSection = Section().apply {
             val trendingItems = data.map { TrendingItem(it) }
             trendingAdapter.updateAsync(trendingItems)
-            update(listOf(TrendingCarouselItem(trendingAdapter,viewPool)))
+            update(listOf(TrendingCarouselItem(sliderAdapter)))
         }
         homeAdapter.add(trendingSection)
     }
