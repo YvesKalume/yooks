@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.yvkalume.dcplus.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_previewFragment"
             app:destination="@id/previewFragment" />
@@ -27,6 +27,6 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.yvkalume.dcplus.ui.favorites.FavoriteFragment"
-        android:label="fragment_favorite"
+        android:label="Favories"
         tools:layout="@layout/fragment_favorite" />
 </navigation>

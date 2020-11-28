@@ -78,6 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             trendingAdapter.updateAsync(trendingItems)
             update(listOf(TrendingCarouselItem(sliderAdapter)))
         }
+
         homeAdapter.add(trendingSection)
     }
 
