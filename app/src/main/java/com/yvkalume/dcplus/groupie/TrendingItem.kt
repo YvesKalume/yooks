@@ -9,9 +9,9 @@ import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemGenreBinding
 import com.yvkalume.dcplus.databinding.ItemTrendingBinding
-import com.yvkalume.model.entity.Serie
+import com.yvkalume.model.entity.Episode
 
-class TrendingItem(val serie: Serie) : BindableItem<ItemTrendingBinding>() {
+class TrendingItem(val episode: Episode) : BindableItem<ItemTrendingBinding>() {
     override fun bind(viewBinding: ItemTrendingBinding, position: Int) {
 
     }

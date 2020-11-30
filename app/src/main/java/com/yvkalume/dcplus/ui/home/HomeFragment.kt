@@ -17,14 +17,15 @@ import com.yvkalume.dcplus.databinding.FragmentHomeBinding
 import com.yvkalume.dcplus.getGenres
 import com.yvkalume.dcplus.getTrends
 import com.yvkalume.dcplus.groupie.*
+import com.yvkalume.model.entity.Episode
 import com.yvkalume.model.entity.Genre
-import com.yvkalume.model.entity.Serie
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
 
+    private val sections = arrayListOf<Section>()
 
     private val viewPool = RecyclerView.RecycledViewPool().apply {
         setMaxRecycledViews(0, 0)
@@ -50,55 +51,54 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         populateGenre(getGenres())
     }
 
-    private val homeAdapter = GroupAdapter<GroupieViewHolder>().apply {
+    private val homeAdapter = GroupAdapter<GroupieViewHolder>()
+
+    private val genreAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
             if (item is GenreItem)
                 Toast.makeText(context,"${item.genreTitle}",Toast.LENGTH_SHORT).show()
         }
     }
 
-    private val trendingAdapter = GroupAdapter<GroupieViewHolder>().apply {
-        setOnItemClickListener { item, _ ->
-            item as TrendingItem
-            Toast.makeText(context, item.serie.title,Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
-        }
-
-    }
-
-    private val genreAdapter = GroupAdapter<GroupieViewHolder>()
-
     private val sliderAdapter = ImageSliderAdapter()
-    private fun populateTrendingList(data: List<Serie>) {
-        for (i in 1..5) {
-            sliderAdapter.addItem("item")
-        }
+    private fun populateTrendingList(data: List<Episode>) {
         val trendingSection = Section().apply {
-            val trendingItems = data.map { TrendingItem(it) }
-            trendingAdapter.updateAsync(trendingItems)
-            update(listOf(TrendingCarouselItem(sliderAdapter)))
+            data.map { sliderAdapter.addItem(it) }
+            update(listOf(TrendingSection(sliderAdapter)))
         }
 
-        homeAdapter.add(trendingSection)
+        sections.add(trendingSection)
+        homeAdapter.updateAsync(sections)
     }
 
     private fun populateGenre(data: List<Genre>) {
 
+        val genreSection = Section().apply {
             val genreItems = data.map {
-                val serieItems= it.series.map { serie ->
-                    BdItem(serie)
+                val episodeItems= it.episode.map { episode ->
+                    BdItem(episode)
                 }
-                val serieAdapter = GroupAdapter<GroupieViewHolder>().apply {
-                    setOnItemClickListener { item, _ ->
-                        item as BdItem
-                        findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
-                    }
-                }
-                serieAdapter.updateAsync(serieItems)
-                GenreItem(it,serieAdapter,viewPool)
-            }
 
-        homeAdapter.addAll(genreItems)
+                val episodeAdapter = getEpisodeAdapter()
+                episodeAdapter.updateAsync(episodeItems)
+                GenreItem(it,episodeAdapter,viewPool)
+            }
+            genreAdapter.updateAsync(genreItems)
+            update(listOf(GenreSection(genreAdapter,viewPool)))
+        }
+
+
+        sections.add(genreSection)
+        homeAdapter.updateAsync(sections)
+    }
+
+    private fun getEpisodeAdapter(): GroupAdapter<GroupieViewHolder> {
+        return GroupAdapter<GroupieViewHolder>().apply {
+            setOnItemClickListener { item, _ ->
+                item as BdItem
+                findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
+            }
+        }
     }
 
 }
