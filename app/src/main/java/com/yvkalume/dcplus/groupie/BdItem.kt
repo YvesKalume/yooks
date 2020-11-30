@@ -8,7 +8,10 @@ import com.yvkalume.model.entity.Episode
 
 class BdItem(private val episode: Episode) : BindableItem<ItemBdBinding>() {
     override fun bind(viewBinding: ItemBdBinding, position: Int) {
-        viewBinding.title.text = episode.title
+        viewBinding.run {
+            title.text = episode.title
+            appCompatImageView.setImageResource(episode.image)
+        }
     }
 
     override fun getLayout(): Int = R.layout.item_bd

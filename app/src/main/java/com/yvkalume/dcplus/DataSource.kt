@@ -3,10 +3,19 @@ package com.yvkalume.dcplus
 import com.yvkalume.model.entity.Episode
 import com.yvkalume.model.entity.Genre
 
+val imageList = arrayListOf(
+    R.drawable.skyrock,
+    R.drawable.one_piece,
+    R.drawable.dragonball,
+    R.drawable.fairytale,
+    R.drawable.fairytale,
+    R.drawable.fox_of_siku
+)
+
 fun getTrends(): ArrayList<Episode> {
     val trends = arrayListOf<Episode>()
     for (i in 1..3) {
-        trends.add(Episode("$i","Item $i"))
+        trends.add(Episode("$i","Item $i", imageList.random()))
     }
     return trends
 }
@@ -14,7 +23,7 @@ fun getTrends(): ArrayList<Episode> {
 fun getEpisodes(): ArrayList<Episode> {
     val episodes = arrayListOf<Episode>()
     for (i in 1..8) {
-        episodes.add(Episode("$i","Episode #$i"))
+        episodes.add(Episode("$i","Episode #$i", imageList.random()))
     }
     return episodes
 }

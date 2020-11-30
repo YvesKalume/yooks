@@ -8,7 +8,10 @@ import com.yvkalume.model.entity.Episode
 
 class BdSearchItem(private val bd: Episode) : BindableItem<ItemBdSearchBinding>() {
     override fun bind(viewBinding: ItemBdSearchBinding, position: Int) {
-        viewBinding.title.text = bd.title
+        viewBinding.run {
+            title.text = bd.title
+            appCompatImageView.setImageResource(bd.image)
+        }
     }
 
     override fun getLayout(): Int = R.layout.item_bd_search

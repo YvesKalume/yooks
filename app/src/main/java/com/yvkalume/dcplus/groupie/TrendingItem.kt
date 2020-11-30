@@ -13,7 +13,9 @@ import com.yvkalume.model.entity.Episode
 
 class TrendingItem(val episode: Episode) : BindableItem<ItemTrendingBinding>() {
     override fun bind(viewBinding: ItemTrendingBinding, position: Int) {
-
+        viewBinding.run {
+            imageView.setImageResource(episode.image)
+        }
     }
 
 

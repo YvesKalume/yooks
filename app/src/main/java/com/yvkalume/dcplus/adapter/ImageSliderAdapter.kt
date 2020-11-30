@@ -28,7 +28,7 @@ class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
     override fun onBindViewHolder(viewHolder: CustomViewHolder, position: Int) {
         val binding = viewHolder.binding as ItemTrendingBinding
         //TODO : getItem Image Url
-        binding.title.text = items[position].title
+        binding.imageView.setImageResource(items[position].image)
         binding.executePendingBindings()
     }
 }
