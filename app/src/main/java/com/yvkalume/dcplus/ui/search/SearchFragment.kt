@@ -11,7 +11,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentSearchBinding
 import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.groupie.BdSearchItem
+import com.yvkalume.dcplus.adapter.groupie.BdSearchItem
 import com.yvkalume.model.entity.Episode
 
 

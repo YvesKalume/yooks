@@ -1,4 +1,4 @@
-package com.yvkalume.dcplus.groupie
+package com.yvkalume.dcplus.adapter.groupie
 
 import android.view.View
 import com.smarteist.autoimageslider.SliderAnimations

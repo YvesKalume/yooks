@@ -13,10 +13,13 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.adapter.ImageSliderAdapter
+import com.yvkalume.dcplus.adapter.groupie.BdItem
+import com.yvkalume.dcplus.adapter.groupie.GenreItem
+import com.yvkalume.dcplus.adapter.groupie.GenreSection
+import com.yvkalume.dcplus.adapter.groupie.TrendingSection
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
 import com.yvkalume.dcplus.getGenres
 import com.yvkalume.dcplus.getTrends
-import com.yvkalume.dcplus.groupie.*
 import com.yvkalume.model.entity.Episode
 import com.yvkalume.model.entity.Genre
 

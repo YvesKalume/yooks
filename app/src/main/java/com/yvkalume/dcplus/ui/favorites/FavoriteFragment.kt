@@ -14,7 +14,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentFavoriteBinding
 import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.groupie.BdHorizontalItem
+import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
 import com.yvkalume.model.entity.Episode
 
 class FavoriteFragment : Fragment(R.layout.fragment_favorite) {

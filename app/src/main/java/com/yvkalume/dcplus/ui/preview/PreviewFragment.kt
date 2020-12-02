@@ -16,7 +16,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentPreviewBinding
 import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.groupie.BdHorizontalItem
+import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
 import com.yvkalume.model.entity.Episode
 import jp.wasabeef.blurry.Blurry
 import kotlinx.android.synthetic.main.fragment_preview.*
