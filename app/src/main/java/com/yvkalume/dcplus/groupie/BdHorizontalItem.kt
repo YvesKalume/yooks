@@ -10,6 +10,7 @@ class BdHorizontalItem(val episode: Episode) : BindableItem<ItemBdHorizontalBind
     override fun bind(viewBinding: ItemBdHorizontalBinding, position: Int) {
         viewBinding.run {
             title.text = episode.title
+            roundedImageView.setImageResource(episode.image)
         }
     }
 
