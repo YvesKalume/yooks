@@ -4,7 +4,7 @@ import android.view.View
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemBdHorizontalBinding
-import com.yvkalume.model.entity.Episode
+import com.yvkalume.model.domain.Episode
 
 class BdHorizontalItem(val episode: Episode) : BindableItem<ItemBdHorizontalBinding>() {
     override fun bind(viewBinding: ItemBdHorizontalBinding, position: Int) {

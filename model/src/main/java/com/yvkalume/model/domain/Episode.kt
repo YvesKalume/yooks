@@ -1,4 +1,4 @@
-package com.yvkalume.model.entity
+package com.yvkalume.model.domain
 
 data class Episode(
     val uid: String,

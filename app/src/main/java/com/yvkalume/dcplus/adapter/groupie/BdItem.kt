@@ -4,7 +4,7 @@ import android.view.View
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemBdBinding
-import com.yvkalume.model.entity.Episode
+import com.yvkalume.model.domain.Episode
 
 class BdItem(private val episode: Episode) : BindableItem<ItemBdBinding>() {
     override fun bind(viewBinding: ItemBdBinding, position: Int) {

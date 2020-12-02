@@ -1,7 +1,7 @@
 package com.yvkalume.dcplus
 
-import com.yvkalume.model.entity.Episode
-import com.yvkalume.model.entity.Genre
+import com.yvkalume.model.domain.Episode
+import com.yvkalume.model.domain.Genre
 
 val imageList = arrayListOf(
     R.drawable.skyrock,

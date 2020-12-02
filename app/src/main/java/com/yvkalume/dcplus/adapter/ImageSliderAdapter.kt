@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.smarteist.autoimageslider.SliderViewAdapter
 import com.yvkalume.dcplus.databinding.ItemTrendingBinding
-import com.yvkalume.model.entity.Episode
-import com.yvkalume.util.setImageUrl
+import com.yvkalume.model.domain.Episode
 
 class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
 

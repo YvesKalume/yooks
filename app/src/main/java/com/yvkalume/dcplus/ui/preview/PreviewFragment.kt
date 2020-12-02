@@ -1,25 +1,14 @@
 package com.yvkalume.dcplus.ui.preview
 
-import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
-import androidx.recyclerview.widget.RecyclerView
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentPreviewBinding
-import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
-import com.yvkalume.model.entity.Episode
 import jp.wasabeef.blurry.Blurry
-import kotlinx.android.synthetic.main.fragment_preview.*
 
 
 class PreviewFragment : Fragment(R.layout.fragment_preview) {

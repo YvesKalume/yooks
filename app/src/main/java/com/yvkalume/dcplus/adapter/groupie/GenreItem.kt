@@ -8,7 +8,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemGenreBinding
-import com.yvkalume.model.entity.Genre
+import com.yvkalume.model.domain.Genre
 
 class GenreItem(
     private val genre: Genre,

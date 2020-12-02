@@ -2,9 +2,7 @@ package com.yvkalume.dcplus.ui.favorites
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -15,7 +13,7 @@ import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentFavoriteBinding
 import com.yvkalume.dcplus.getEpisodes
 import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
-import com.yvkalume.model.entity.Episode
+import com.yvkalume.model.domain.Episode
 
 class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 

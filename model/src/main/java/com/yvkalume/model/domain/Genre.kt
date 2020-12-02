@@ -1,4 +1,4 @@
-package com.yvkalume.model.entity
+package com.yvkalume.model.domain
 
 data class Genre(
     val uid: String,

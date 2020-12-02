@@ -20,8 +20,8 @@ import com.yvkalume.dcplus.adapter.groupie.TrendingSection
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
 import com.yvkalume.dcplus.getGenres
 import com.yvkalume.dcplus.getTrends
-import com.yvkalume.model.entity.Episode
-import com.yvkalume.model.entity.Genre
+import com.yvkalume.model.domain.Episode
+import com.yvkalume.model.domain.Genre
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

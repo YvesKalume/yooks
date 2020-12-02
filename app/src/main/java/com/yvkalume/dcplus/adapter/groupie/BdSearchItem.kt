@@ -4,7 +4,7 @@ import android.view.View
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemBdSearchBinding
-import com.yvkalume.model.entity.Episode
+import com.yvkalume.model.domain.Episode
 
 class BdSearchItem(private val bd: Episode) : BindableItem<ItemBdSearchBinding>() {
     override fun bind(viewBinding: ItemBdSearchBinding, position: Int) {
