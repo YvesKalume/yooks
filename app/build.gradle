@@ -54,11 +54,13 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(Module.model)
     implementation project(Module.util)
+    implementation project(Module.interactor)
     implementation Deps.Kotlin.stdlib
     implementation Deps.AndroidX.core
     implementation Deps.AndroidX.appcompat
     implementation Deps.AndroidX.constraintLayout
     implementation Deps.AndroidX.legacy
+    implementation Deps.AndroidX.startup
     testImplementation Deps.AndroidX.Test.junit
     androidTestImplementation Deps.AndroidX.Test.ext
     androidTestImplementation Deps.AndroidX.Test.Espresso.core

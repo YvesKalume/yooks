@@ -7,6 +7,7 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.mvrx.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
@@ -15,19 +16,19 @@ import com.yvkalume.dcplus.getEpisodes
 import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
 import com.yvkalume.model.domain.Episode
 
-class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
+class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
 
     private val binding: FragmentFavoriteBinding by viewBinding()
+    private val viewModel: FavoriteViewModel by activityViewModel()
     private val recyclerView by lazy { binding.recyclerView }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerview()
-        populateFavorite(getEpisodes())
     }
 
     private val favoriteAdapter = GroupAdapter<GroupieViewHolder>()
 
-    fun setUpRecyclerview() {
+    private fun setUpRecyclerview() {
         recyclerView.adapter = favoriteAdapter
         val swipeCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(
@@ -53,6 +54,14 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     private fun populateFavorite(episodes: List<Episode>) {
         val episodesItems = episodes.map { BdHorizontalItem(it) }
         favoriteAdapter.updateAsync(episodesItems)
+    }
+
+    override fun invalidate() = withState(viewModel) {
+        when(it.episodes) {
+            is Loading -> Unit
+            is Success -> populateFavorite(it.episodes.invoke())
+            is Fail -> Unit
+        }
     }
 
 }

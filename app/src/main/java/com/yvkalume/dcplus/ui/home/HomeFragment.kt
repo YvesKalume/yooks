@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.mvrx.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
@@ -24,9 +27,9 @@ import com.yvkalume.model.domain.Episode
 import com.yvkalume.model.domain.Genre
 
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
-    private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+    private val binding: FragmentHomeBinding by viewBinding()
 
     private val sections = arrayListOf<Section>()
 
@@ -34,24 +37,27 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         setMaxRecycledViews(0, 0)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return binding.root
-    }
+    private val viewModel: HomeViewModel by activityViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-      binding.recyclerView.apply {
+
+        binding.recyclerView.apply {
           adapter = homeAdapter
           setHasFixedSize(true)
           setRecycledViewPool(viewPool)
         }
+    }
 
-        populateTrendingList(getTrends())
-        populateGenre(getGenres())
+    override fun invalidate() = withState(viewModel) {
+        when(it.homeData) {
+            is Loading -> Unit
+            is Success -> {
+                populateTrendingList(it.homeData.invoke().trending)
+                populateGenre(it.homeData.invoke().genres)
+            }
+            is Fail -> Unit
+        }
     }
 
     private val homeAdapter = GroupAdapter<GroupieViewHolder>()

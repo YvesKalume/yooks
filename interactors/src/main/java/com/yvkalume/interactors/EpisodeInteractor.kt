@@ -29,7 +29,7 @@ class EpisodeInteractor {
         awaitClose()
     }
 
-    suspend fun getEpisodesBySearch() = callbackFlow {
+    suspend fun getEpisodesByKeywords(keywords: String) = callbackFlow {
         offer(listOf<Episode>())
         awaitClose()
     }

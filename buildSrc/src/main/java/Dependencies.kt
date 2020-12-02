@@ -79,6 +79,7 @@ object Deps {
         const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.2"
         const val viewpager = "androidx.viewpager2:viewpager2:1.0.0"
+        const val startup = "androidx.startup:startup-runtime:1.0.0-beta01"
 
         object Navigation {
             private const val version = "2.3.0"

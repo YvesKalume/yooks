@@ -14,7 +14,7 @@ class GenreInteractor {
     }
 
     suspend fun getGenreById(uid: Int) = callbackFlow {
-        offer(Genre("","",null))
+        offer(Genre("","", listOf()))
         awaitClose()
     }
 }

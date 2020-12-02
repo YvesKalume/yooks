@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import com.airbnb.mvrx.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
@@ -13,8 +14,10 @@ import com.yvkalume.dcplus.adapter.groupie.BdSearchItem
 import com.yvkalume.model.domain.Episode
 
 
-class SearchFragment : Fragment(R.layout.fragment_search) {
+class SearchFragment : Fragment(R.layout.fragment_search), MavericksView {
     private val binding: FragmentSearchBinding by viewBinding()
+
+    private val viewModel: SearchViewModel by activityViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,7 +28,15 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private val searchAdapter = GroupAdapter<GroupieViewHolder>()
 
-    fun populateResult(bd: List<Episode>){
+    private fun populateResult(bd: List<Episode>){
         searchAdapter.updateAsync(bd.map { BdSearchItem(it) })
+    }
+
+    override fun invalidate() = withState(viewModel) {
+        when(it.episodes) {
+            is Loading -> Unit
+            is Success -> populateResult(it.episodes.invoke())
+            is Fail -> Unit
+        }
     }
 }
