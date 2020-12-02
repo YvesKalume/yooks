@@ -1,3 +1,4 @@
+include ':interactors'
 include ':util'
 include ':model'
 include ':app'

@@ -20,6 +20,7 @@ object Version {
 object Module {
     const val model = ":model"
     const val util = ":util"
+    const val interactor = ":interactors"
 }
 
 object Deps {

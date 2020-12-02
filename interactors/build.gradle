@@ -1,0 +1,56 @@
+import com.yvkalume.buildsrc.App
+import com.yvkalume.buildsrc.Deps
+import com.yvkalume.buildsrc.Module
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion App.compileSdkVersion
+    buildToolsVersion App.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(Module.model)
+
+    implementation Deps.Kotlin.stdlib
+    implementation Deps.AndroidX.core
+
+    testImplementation Deps.AndroidX.Test.junit
+    androidTestImplementation Deps.AndroidX.Test.ext
+    androidTestImplementation Deps.AndroidX.Test.Espresso.core
+
+    implementation Deps.Coroutines.core
+    implementation Deps.Coroutines.android
+
+    implementation Deps.Koin.android
+    implementation Deps.Koin.androidxScope
+    implementation Deps.Koin.viewmodel
+}
