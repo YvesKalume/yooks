@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="3"
-        tools:listitem="@layout/item_bd"/>
+        tools:listitem="@layout/item_episode"/>
 
 </FrameLayout>

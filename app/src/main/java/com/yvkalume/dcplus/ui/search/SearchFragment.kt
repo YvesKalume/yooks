@@ -10,7 +10,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentSearchBinding
 import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.adapter.groupie.BdSearchItem
+import com.yvkalume.dcplus.adapter.groupie.EpisodeSearchItem
 import com.yvkalume.model.domain.Episode
 
 
@@ -29,7 +29,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), MavericksView {
     private val searchAdapter = GroupAdapter<GroupieViewHolder>()
 
     private fun populateResult(bd: List<Episode>){
-        searchAdapter.updateAsync(bd.map { BdSearchItem(it) })
+        searchAdapter.updateAsync(bd.map { EpisodeSearchItem(it) })
     }
 
     override fun invalidate() = withState(viewModel) {

@@ -41,6 +41,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        tools:listitem="@layout/item_bd_horizontal"/>
+        tools:listitem="@layout/item_episode_horizontal"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

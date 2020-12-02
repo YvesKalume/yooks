@@ -2,12 +2,9 @@ package com.yvkalume.dcplus.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.mvrx.*
@@ -16,13 +13,11 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.adapter.ImageSliderAdapter
-import com.yvkalume.dcplus.adapter.groupie.BdItem
+import com.yvkalume.dcplus.adapter.groupie.EpisodeItem
 import com.yvkalume.dcplus.adapter.groupie.GenreItem
 import com.yvkalume.dcplus.adapter.groupie.GenreSection
 import com.yvkalume.dcplus.adapter.groupie.TrendingSection
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
-import com.yvkalume.dcplus.getGenres
-import com.yvkalume.dcplus.getTrends
 import com.yvkalume.model.domain.Episode
 import com.yvkalume.model.domain.Genre
 
@@ -85,7 +80,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
         val genreSection = Section().apply {
             val genreItems = data.map {
                 val episodeItems= it.episode.map { episode ->
-                    BdItem(episode)
+                    EpisodeItem(episode)
                 }
 
                 val episodeAdapter = getEpisodeAdapter()
@@ -104,7 +99,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     private fun getEpisodeAdapter(): GroupAdapter<GroupieViewHolder> {
         return GroupAdapter<GroupieViewHolder>().apply {
             setOnItemClickListener { item, _ ->
-                item as BdItem
+                item as EpisodeItem
                 findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
             }
         }

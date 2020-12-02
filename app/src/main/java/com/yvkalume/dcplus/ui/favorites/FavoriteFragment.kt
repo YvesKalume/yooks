@@ -12,8 +12,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentFavoriteBinding
-import com.yvkalume.dcplus.getEpisodes
-import com.yvkalume.dcplus.adapter.groupie.BdHorizontalItem
+import com.yvkalume.dcplus.adapter.groupie.EpisodeHorizontalItem
 import com.yvkalume.model.domain.Episode
 
 class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
@@ -40,7 +39,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val item = favoriteAdapter.getItem(viewHolder.adapterPosition) as BdHorizontalItem
+                val item = favoriteAdapter.getItem(viewHolder.adapterPosition) as EpisodeHorizontalItem
                 Toast.makeText(context, item.episode.title,Toast.LENGTH_SHORT).show()
                 favoriteAdapter.notifyItemRemoved(viewHolder.adapterPosition)
                 //TODO : put deletetion confirmation dialogbox
@@ -52,7 +51,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
     }
 
     private fun populateFavorite(episodes: List<Episode>) {
-        val episodesItems = episodes.map { BdHorizontalItem(it) }
+        val episodesItems = episodes.map { EpisodeHorizontalItem(it) }
         favoriteAdapter.updateAsync(episodesItems)
     }
 
