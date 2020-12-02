@@ -5,6 +5,7 @@ import com.yvkalume.buildsrc.Module
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion App.compileSdkVersion
@@ -65,6 +66,19 @@ dependencies {
     implementation Deps.AndroidX.Navigation.fragment
     implementation Deps.AndroidX.Navigation.ui
     implementation Deps.AndroidX.Navigation.test
+
+    implementation Deps.Coroutines.core
+    implementation Deps.Coroutines.android
+
+    implementation Deps.Koin.android
+    implementation Deps.Koin.androidxScope
+    implementation Deps.Koin.viewmodel
+
+    implementation Deps.Retrofit.retrofit
+    implementation Deps.Retrofit.gson
+    implementation Deps.Retrofit.coroutinesAdapter
+
+    implementation Deps.Mavericks.mvrx
 
     implementation Deps.Groupie.core
     implementation Deps.Groupie.viewBinding

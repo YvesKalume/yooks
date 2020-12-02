@@ -9,12 +9,12 @@ object App {
 }
 
 object Plugin {
-    const val gradle = "com.android.tools.build:gradle:4.0.2"
+    const val gradle = "com.android.tools.build:gradle:4.1.1"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}"
 }
 
 object Version {
-    const val kotlin = "1.4.10"
+    const val kotlin = "1.4.20"
 }
 
 object Module {
@@ -43,6 +43,31 @@ object Deps {
         private const val version = "2.8.0"
         const val core = "com.xwray:groupie:$version"
         const val viewBinding = "com.xwray:groupie-viewbinding:$version"
+    }
+
+
+    object Mavericks {
+        const val mvrx = "com.airbnb.android:mvrx:2.0.0-beta1"
+    }
+
+    object Retrofit {
+        private const val retrofitVersion = "2.9.0"
+        const val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val gson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    }
+
+    object Koin {
+        private const val koin_version = "2.1.6"
+        const val android = "org.koin:koin-android:$koin_version"
+        const val androidxScope = "org.koin:koin-androidx-scope:$koin_version"
+        const val viewmodel = "org.koin:koin-androidx-viewmodel:$koin_version"
+    }
+
+    object Coroutines {
+        private const val coroutinesVersion = "1.3.9"
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+        const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     }
 
     object AndroidX {
