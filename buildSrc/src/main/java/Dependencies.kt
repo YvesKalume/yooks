@@ -71,6 +71,12 @@ object Deps {
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     }
 
+    object Firebase {
+        const val bom = "com.google.firebase:firebase-bom:26.1.0"
+        const val firestore = "com.google.firebase:firebase-firestore-ktx"
+        const val storage = "com.google.firebase:firebase-storage"
+    }
+
     object AndroidX {
         private const val nav_version = "2.3.1"
 

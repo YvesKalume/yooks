@@ -1,5 +1,7 @@
 package com.yvkalume.dcplus.app.di
 
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.yvkalume.dcplus.ui.category.CategoryPresenter
 import com.yvkalume.dcplus.ui.favorites.FavoritePresenter
 import com.yvkalume.dcplus.ui.home.HomePresenter
@@ -21,4 +23,9 @@ val presenterModule = module {
     single { SearchPresenter(get()) }
     single { FavoritePresenter(get()) }
     single { CategoryPresenter(get()) }
+}
+
+val firebaseModule = module {
+    single { FirebaseFirestore.getInstance() }
+    single { FirebaseStorage.getInstance() }
 }

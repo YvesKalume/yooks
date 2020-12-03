@@ -69,6 +69,10 @@ dependencies {
     implementation Deps.AndroidX.Navigation.ui
     implementation Deps.AndroidX.Navigation.test
 
+    implementation platform(Deps.Firebase.bom)
+    implementation Deps.Firebase.firestore
+    implementation Deps.Firebase.storage
+
     implementation Deps.Coroutines.core
     implementation Deps.Coroutines.android
 
@@ -91,3 +95,5 @@ dependencies {
     implementation Deps.blurry
     implementation Deps.imageSlider
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -3,6 +3,7 @@ package com.yvkalume.dcplus.app.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.yvkalume.dcplus.app.di.firebaseModule
 import com.yvkalume.dcplus.app.di.interactorModule
 import com.yvkalume.dcplus.app.di.presenterModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -12,7 +13,7 @@ class KoinInitializer : Initializer<Unit> {
     @ExperimentalCoroutinesApi
     override fun create(context: Context) {
         startKoin {
-            modules(interactorModule,presenterModule)
+            modules(interactorModule,presenterModule,firebaseModule)
         }
     }
 

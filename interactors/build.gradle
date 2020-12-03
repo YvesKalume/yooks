@@ -47,6 +47,10 @@ dependencies {
     androidTestImplementation Deps.AndroidX.Test.ext
     androidTestImplementation Deps.AndroidX.Test.Espresso.core
 
+    implementation platform(Deps.Firebase.bom)
+    implementation Deps.Firebase.firestore
+    implementation Deps.Firebase.storage
+
     implementation Deps.Coroutines.core
     implementation Deps.Coroutines.android
 
