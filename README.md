@@ -10,6 +10,10 @@
 
 For more information about how to add Firebase to your project follow this [link](https://firebase.google.com/docs/android/setup).
 
+## Screens
+
+<img src="https://github.com/YvesKalume/dc-plus-android/blob/main/screenshots/home.png?raw=true" alt="drawing" width="220"/> <img src="https://github.com/YvesKalume/dc-plus-android/blob/main/screenshots/search.png?raw=true" alt="drawing" width="220"/> <img src="https://github.com/YvesKalume/dc-plus-android/blob/main/screenshots/favorites.png?raw=true" alt="drawing" width="220"/>
+
 ## Author
 I'm [Yves Kalume](https://about.me/yveskalume).
 
