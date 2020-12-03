@@ -13,8 +13,8 @@ import org.koin.dsl.module
 
 @ExperimentalCoroutinesApi
 val interactorModule = module {
-    single { EpisodeInteractor() }
-    single { GenreInteractor() }
+    single { EpisodeInteractor(get()) }
+    single { GenreInteractor(get()) }
 }
 
 @ExperimentalCoroutinesApi

@@ -12,9 +12,9 @@ class CategoryViewModel (
 
     private val presenter: CategoryPresenter by inject()
 
-    fun getData(genre: Genre) = viewModelScope.launch {
-        presenter.getEpisodeByGenre(genre).execute {
-            copy(episode = it)
+    fun getData(genreUid: String) = viewModelScope.launch {
+        presenter.getEpisodeByGenreUid(genreUid).execute {
+            copy(episodes = it)
         }
     }
 

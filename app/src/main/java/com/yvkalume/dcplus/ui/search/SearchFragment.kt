@@ -22,8 +22,6 @@ class SearchFragment : Fragment(R.layout.fragment_search), MavericksView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = searchAdapter
-        populateResult(getEpisodes())
-
     }
 
     private val searchAdapter = GroupAdapter<GroupieViewHolder>()
