@@ -12,6 +12,7 @@ For more information about how to add Firebase to your project follow this [link
 
 ## Author
 I'm [Yves Kalume](https://about.me/yveskalume).
+
 Twitter: [@KalumeYves](https://twitter.com/kalumeyves).
 
 ## License
