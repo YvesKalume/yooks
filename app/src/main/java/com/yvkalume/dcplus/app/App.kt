@@ -7,11 +7,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.core.context.startKoin
 
 class App : Application() {
-    @ExperimentalCoroutinesApi
     override fun onCreate() {
         super.onCreate()
-        startKoin {
-            modules(interactorModule, presenterModule)
-        }
     }
 }
