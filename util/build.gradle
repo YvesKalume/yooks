@@ -54,4 +54,6 @@ dependencies {
     androidTestImplementation Deps.AndroidX.Test.ext
     androidTestImplementation Deps.AndroidX.Test.Espresso.core
 
+    implementation Deps.glide
+
 }

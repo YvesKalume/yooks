@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import com.smarteist.autoimageslider.SliderViewAdapter
 import com.yvkalume.dcplus.databinding.ItemTrendingBinding
 import com.yvkalume.model.domain.Episode
+import com.yvkalume.util.setImageUrl
 
 class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
 
@@ -27,7 +28,7 @@ class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
     override fun onBindViewHolder(viewHolder: CustomViewHolder, position: Int) {
         val binding = viewHolder.binding as ItemTrendingBinding
         //TODO : getItem Image Url
-        binding.imageView.setImageResource(items[position].image)
+        binding.imageView.setImageUrl(items[position].imageUrl)
         binding.executePendingBindings()
     }
 }

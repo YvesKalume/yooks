@@ -79,12 +79,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
         val genreSection = Section().apply {
             val genreItems = data.map {
-                val episodeItems= it.episode.map { episode ->
+                val episodeItems= it.episode?.map { episode ->
                     EpisodeItem(episode)
                 }
 
                 val episodeAdapter = getEpisodeAdapter()
-                episodeAdapter.updateAsync(episodeItems)
+                if (episodeItems != null) {
+                    episodeAdapter.updateAsync(episodeItems)
+                }
                 GenreItem(it,episodeAdapter,viewPool)
             }
             genreAdapter.updateAsync(genreItems)

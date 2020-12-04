@@ -90,6 +90,7 @@ dependencies {
     implementation Deps.Groupie.viewBinding
 
     implementation Deps.material
+    implementation Deps.glide
     implementation Deps.roundedImageview
     implementation Deps.viewBinding
     implementation Deps.blurry

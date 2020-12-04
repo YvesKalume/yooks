@@ -9,7 +9,6 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentSearchBinding
-import com.yvkalume.dcplus.getEpisodes
 import com.yvkalume.dcplus.adapter.groupie.EpisodeSearchItem
 import com.yvkalume.model.domain.Episode
 

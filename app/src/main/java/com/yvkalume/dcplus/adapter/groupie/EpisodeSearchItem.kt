@@ -5,12 +5,13 @@ import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemEpisodeSearchBinding
 import com.yvkalume.model.domain.Episode
+import com.yvkalume.util.setImageUrl
 
-class EpisodeSearchItem(private val bd: Episode) : BindableItem<ItemEpisodeSearchBinding>() {
+class EpisodeSearchItem(private val episode: Episode) : BindableItem<ItemEpisodeSearchBinding>() {
     override fun bind(viewBinding: ItemEpisodeSearchBinding, position: Int) {
         viewBinding.run {
-            title.text = bd.title
-            appCompatImageView.setImageResource(bd.image)
+            title.text = episode.title
+            appCompatImageView.setImageUrl(episode.imageUrl)
         }
     }
 

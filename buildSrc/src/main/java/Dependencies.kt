@@ -32,6 +32,7 @@ object Deps {
     const val pinview = "com.github.mukeshsolanki:android-otpview-pinview:2.1.2"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val formValidator = "com.github.ShabanKamell.FormValidator:core:2.1.0"
+    const val glide = "com.github.bumptech.glide:glide:4.11.0"
     const val blurry = "jp.wasabeef:blurry:4.0.0"
     const val blurBehind = "no.danielzeller.blurbehindlib:blurbehindlib:1.0.0"
     const val imageSlider = "com.github.smarteist:autoimageslider:1.4.0"
