@@ -79,7 +79,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
         val genreSection = Section().apply {
             val genreItems = data.map {
-                val episodeItems= it.episode?.map { episode ->
+                val episodeItems= it.episodes?.map { episode ->
                     EpisodeItem(episode)
                 }
 
