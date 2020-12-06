@@ -1,16 +1,16 @@
 package com.yvkalume.dcplus.ui.search
 
-import com.yvkalume.interactors.EpisodeInteractor
+import com.yvkalume.interactors.BookInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class SearchPresenter(private val episodeInteractor: EpisodeInteractor) {
+class SearchPresenter(private val bookInteractor: BookInteractor) {
 
     suspend fun loadAll() = withContext(Dispatchers.IO) {
-        episodeInteractor.getAllEpisodes()
+        bookInteractor.getAllBooks()
     }
 
     suspend fun getEpisodesByKeywords(keywords: String) = withContext(Dispatchers.IO) {
-        episodeInteractor.getEpisodesByKeywords(keywords)
+        bookInteractor.getBooksByKeywords(keywords)
     }
 }
