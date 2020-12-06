@@ -14,7 +14,7 @@ class HomePresenter(
         episodeInteractor.getAllEpisodes()
     }
 
-    suspend fun getGenres() = withContext(Dispatchers.IO) {
-        genreInteractor.getAllGenres()
+    suspend fun getRowGenres() = withContext(Dispatchers.IO) {
+        episodeInteractor.getEpisodeGroupedByGenre()
     }
 }

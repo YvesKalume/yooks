@@ -18,7 +18,7 @@ class HomeViewModel(
 
     private fun getData() = viewModelScope.launch {
         val trendingFlow = presenter.getTrendingEpisodes()
-        val genreFlow = presenter.getGenres()
+        val genreFlow = presenter.getRowGenres()
         combine(trendingFlow,genreFlow) { trending, genres ->
             HomeData(trending,genres)
         }.execute {

@@ -20,6 +20,7 @@ import com.yvkalume.dcplus.adapter.groupie.TrendingSection
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
 import com.yvkalume.model.domain.Episode
 import com.yvkalume.model.domain.Genre
+import com.yvkalume.model.presentation.RowGenre
 
 
 class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
@@ -49,7 +50,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
             is Loading -> Unit
             is Success -> {
                 populateTrendingList(it.homeData.invoke().trending)
-                populateGenre(it.homeData.invoke().genres)
+                populateGenre(it.homeData.invoke().rowGenre)
             }
             is Fail -> Unit
         }
@@ -75,18 +76,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
         homeAdapter.updateAsync(sections)
     }
 
-    private fun populateGenre(data: List<Genre>) {
+    private fun populateGenre(data: List<RowGenre>) {
 
         val genreSection = Section().apply {
             val genreItems = data.map {
-                val episodeItems= it.episodes?.map { episode ->
+                val episodeItems= it.episodes.map { episode ->
                     EpisodeItem(episode)
                 }
 
                 val episodeAdapter = getEpisodeAdapter()
-                if (episodeItems != null) {
-                    episodeAdapter.updateAsync(episodeItems)
-                }
+                episodeAdapter.updateAsync(episodeItems)
                 GenreItem(it,episodeAdapter,viewPool)
             }
             genreAdapter.updateAsync(genreItems)

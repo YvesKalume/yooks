@@ -9,16 +9,17 @@ import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemGenreBinding
 import com.yvkalume.model.domain.Genre
+import com.yvkalume.model.presentation.RowGenre
 
 class GenreItem(
-    private val genre: Genre,
+    private val rowGenre: RowGenre,
     private val adapter: GroupAdapter<GroupieViewHolder>,
     private val viewPool: RecyclerView.RecycledViewPool
 ) : BindableItem<ItemGenreBinding>() {
-    var genreTitle: String = genre.title
+    var genreTitle: String = rowGenre.title
     override fun bind(viewBinding: ItemGenreBinding, position: Int) {
         viewBinding.run {
-            title.text = genre.title
+            title.text = rowGenre.title
             recyclerView.adapter = adapter
         }
     }

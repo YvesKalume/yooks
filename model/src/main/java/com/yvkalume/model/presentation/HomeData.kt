@@ -5,5 +5,5 @@ import com.yvkalume.model.domain.Genre
 
 data class HomeData(
     val trending: List<Episode>,
-    val genres : List<Genre>
+    val rowGenre: List<RowGenre>
 )

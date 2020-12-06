@@ -4,6 +4,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.yvkalume.interactors.util.FirebasePath
 import com.yvkalume.model.domain.Episode
 import com.yvkalume.model.domain.Genre
+import com.yvkalume.model.presentation.RowGenre
+import com.yvkalume.model.util.toRowGenre
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
@@ -43,6 +45,13 @@ class EpisodeInteractor(private val firestore: FirebaseFirestore) {
                 if (!isClosedForSend) offer(it)
             }
 
+        }
+    }
+
+    suspend fun getEpisodeGroupedByGenre() : Flow<List<RowGenre>> = flow {
+        getAllEpisodes().collect {
+            val genres = it.groupBy(Episode::genreTitle).toRowGenre()
+            emit(genres)
         }
     }
 
