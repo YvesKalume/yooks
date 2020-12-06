@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.smarteist.autoimageslider.SliderViewAdapter
 import com.yvkalume.dcplus.databinding.ItemTrendingBinding
-import com.yvkalume.model.domain.Episode
+import com.yvkalume.model.domain.Book
 import com.yvkalume.util.setImageUrl
 
 class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
 
-    private val items = mutableListOf<Episode>()
+    private val items = mutableListOf<Book>()
 
-    fun addItem(item: Episode) {
+    fun addItem(item: Book) {
         items.add(item)
         notifyDataSetChanged()
     }

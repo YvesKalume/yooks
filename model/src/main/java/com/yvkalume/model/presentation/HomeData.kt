@@ -1,9 +1,8 @@
 package com.yvkalume.model.presentation
 
-import com.yvkalume.model.domain.Episode
-import com.yvkalume.model.domain.Genre
+import com.yvkalume.model.domain.Book
 
 data class HomeData(
-    val trending: List<Episode>,
+    val trending: List<Book>,
     val rowGenre: List<RowGenre>
 )

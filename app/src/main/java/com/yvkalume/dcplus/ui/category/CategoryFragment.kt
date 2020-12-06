@@ -10,9 +10,9 @@ import com.airbnb.mvrx.activityViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
-import com.yvkalume.dcplus.adapter.groupie.EpisodeItem
+import com.yvkalume.dcplus.adapter.groupie.BookItem
 import com.yvkalume.dcplus.databinding.FragmentCategoryBinding
-import com.yvkalume.model.domain.Episode
+import com.yvkalume.model.domain.Book
 
 
 class CategoryFragment : Fragment(R.layout.fragment_category),MavericksView {
@@ -27,14 +27,14 @@ class CategoryFragment : Fragment(R.layout.fragment_category),MavericksView {
 
     private val categoryAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
-            item as EpisodeItem
+            item as BookItem
             findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
         }
     }
 
-    fun populateEpisode(data: List<Episode>) {
+    fun populateEpisode(data: List<Book>) {
         val episodeItems= data.map { episode ->
-            EpisodeItem(episode)
+            BookItem(episode)
         }
         categoryAdapter.updateAsync(episodeItems)
     }

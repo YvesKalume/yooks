@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
         app:spanCount="2"
-        tools:listitem="@layout/item_episode_search" />
+        tools:listitem="@layout/item_book_search" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,6 +1,6 @@
 package com.yvkalume.model.domain
 
-data class Episode(
+data class Book(
     val uid: String = "",
     val title: String = "",
     val imageUrl: String = "",

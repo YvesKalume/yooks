@@ -1,7 +1,7 @@
 package com.yvkalume.model.presentation
 
-import com.yvkalume.model.domain.Episode
+import com.yvkalume.model.domain.Book
 
 data class SearchData (
-    val episodes: List<Episode>
+    val books: List<Book>
     )

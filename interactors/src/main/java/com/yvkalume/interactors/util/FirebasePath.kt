@@ -1,6 +1,6 @@
 package com.yvkalume.interactors.util
 
 object FirebasePath {
-    const val EPISODE = "episodes"
+    const val BOOK = "episodes"
     const val GENRE = "genres"
 }

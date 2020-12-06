@@ -13,13 +13,12 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.adapter.ImageSliderAdapter
-import com.yvkalume.dcplus.adapter.groupie.EpisodeItem
+import com.yvkalume.dcplus.adapter.groupie.BookItem
 import com.yvkalume.dcplus.adapter.groupie.GenreItem
 import com.yvkalume.dcplus.adapter.groupie.GenreSection
 import com.yvkalume.dcplus.adapter.groupie.TrendingSection
 import com.yvkalume.dcplus.databinding.FragmentHomeBinding
-import com.yvkalume.model.domain.Episode
-import com.yvkalume.model.domain.Genre
+import com.yvkalume.model.domain.Book
 import com.yvkalume.model.presentation.RowGenre
 
 
@@ -66,7 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     }
 
     private val sliderAdapter = ImageSliderAdapter()
-    private fun populateTrendingList(data: List<Episode>) {
+    private fun populateTrendingList(data: List<Book>) {
         val trendingSection = Section().apply {
             data.map { sliderAdapter.addItem(it) }
             update(listOf(TrendingSection(sliderAdapter)))
@@ -80,8 +79,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
         val genreSection = Section().apply {
             val genreItems = data.map {
-                val episodeItems= it.episodes.map { episode ->
-                    EpisodeItem(episode)
+                val episodeItems= it.books.map { episode ->
+                    BookItem(episode)
                 }
 
                 val episodeAdapter = getEpisodeAdapter()
@@ -100,7 +99,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     private fun getEpisodeAdapter(): GroupAdapter<GroupieViewHolder> {
         return GroupAdapter<GroupieViewHolder>().apply {
             setOnItemClickListener { item, _ ->
-                item as EpisodeItem
+                item as BookItem
                 findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
             }
         }
