@@ -18,7 +18,11 @@
         android:id="@+id/previewFragment"
         android:name="com.yvkalume.dcplus.ui.preview.PreviewFragment"
         android:label="fragment_preview"
-        tools:layout="@layout/fragment_preview" />
+        tools:layout="@layout/fragment_preview" >
+        <argument
+            android:name="book"
+            app:argType="com.yvkalume.model.domain.Book" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.yvkalume.dcplus.ui.search.SearchFragment"

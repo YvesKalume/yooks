@@ -5,6 +5,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.yvkalume.dcplus.ui.category.CategoryPresenter
 import com.yvkalume.dcplus.ui.favorites.FavoritePresenter
 import com.yvkalume.dcplus.ui.home.HomePresenter
+import com.yvkalume.dcplus.ui.preview.PreviewPresenter
 import com.yvkalume.dcplus.ui.search.SearchPresenter
 import com.yvkalume.interactors.BookInteractor
 import com.yvkalume.interactors.GenreInteractor
@@ -23,6 +24,7 @@ val presenterModule = module {
     single { SearchPresenter(get()) }
     single { FavoritePresenter(get()) }
     single { CategoryPresenter(get()) }
+    single { PreviewPresenter(get()) }
 }
 
 val firebaseModule = module {

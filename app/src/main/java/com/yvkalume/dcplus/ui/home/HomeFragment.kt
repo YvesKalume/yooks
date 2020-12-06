@@ -37,11 +37,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerView.apply {
-          adapter = homeAdapter
-          setHasFixedSize(true)
-          setRecycledViewPool(viewPool)
-        }
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = homeAdapter
+        recyclerView.setHasFixedSize(true)
+        recyclerView.setItemViewCacheSize(100)
+        recyclerView.setRecycledViewPool(viewPool)
     }
 
     override fun invalidate() = withState(viewModel) {
@@ -72,7 +72,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
         }
 
         sections.add(trendingSection)
-        homeAdapter.updateAsync(sections)
+        homeAdapter.add(trendingSection)
     }
 
     private fun populateGenre(data: List<RowGenre>) {
@@ -93,14 +93,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
 
         sections.add(genreSection)
-        homeAdapter.updateAsync(sections)
+        homeAdapter.add(genreSection)
     }
 
     private fun getEpisodeAdapter(): GroupAdapter<GroupieViewHolder> {
         return GroupAdapter<GroupieViewHolder>().apply {
             setOnItemClickListener { item, _ ->
                 item as BookItem
-                findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
+                val directions = HomeFragmentDirections.actionHomeFragmentToPreviewFragment(item.book)
+                findNavController().navigate(directions)
             }
         }
     }

@@ -31,6 +31,18 @@ class BookInteractor(private val firestore: FirebaseFirestore) {
     }
 
 
+    suspend fun getBookByUid(uid: String) = callbackFlow {
+        val query = firestore.document("${FirebasePath.BOOK}/$uid")
+        query.addSnapshotListener { value, error ->
+            if (error != null || value == null) {
+                close()
+            }
+            value?.toObject(Book::class.java)?.let {
+                if (!isClosedForSend) offer(it)
+            }
+        }
+        awaitClose()
+    }
 
     suspend fun getBooksByGenreUid(uid: String) = callbackFlow {
         val query = firestore.collection("${FirebasePath.GENRE}/$uid/books")
@@ -44,6 +56,7 @@ class BookInteractor(private val firestore: FirebaseFirestore) {
             }
 
         }
+        awaitClose()
     }
 
     suspend fun getBooksGroupedByGenre() : Flow<List<RowGenre>> = flow {

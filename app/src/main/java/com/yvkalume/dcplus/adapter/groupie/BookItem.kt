@@ -7,7 +7,7 @@ import com.yvkalume.dcplus.databinding.ItemBookBinding
 import com.yvkalume.model.domain.Book
 import com.yvkalume.util.setImageUrl
 
-class BookItem(private val book: Book) : BindableItem<ItemBookBinding>() {
+class BookItem(val book: Book) : BindableItem<ItemBookBinding>() {
     override fun bind(viewBinding: ItemBookBinding, position: Int) {
         viewBinding.run {
             title.text = book.title
