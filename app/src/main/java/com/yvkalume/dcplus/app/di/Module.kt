@@ -1,5 +1,6 @@
 package com.yvkalume.dcplus.app.di
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.yvkalume.dcplus.ui.category.CategoryPresenter
@@ -14,7 +15,7 @@ import org.koin.dsl.module
 
 @ExperimentalCoroutinesApi
 val interactorModule = module {
-    single { BookInteractor(get()) }
+    single { BookInteractor(get(),get()) }
     single { GenreInteractor(get()) }
 }
 
@@ -30,4 +31,5 @@ val presenterModule = module {
 val firebaseModule = module {
     single { FirebaseFirestore.getInstance() }
     single { FirebaseStorage.getInstance() }
+    single { FirebaseAuth.getInstance() }
 }

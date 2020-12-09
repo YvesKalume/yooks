@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.mvrx.*
@@ -13,6 +14,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentFavoriteBinding
 import com.yvkalume.dcplus.adapter.groupie.BookHorizontalItem
+import com.yvkalume.dcplus.adapter.groupie.BookItem
 import com.yvkalume.model.domain.Book
 
 class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
@@ -25,7 +27,13 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
         setUpRecyclerview()
     }
 
-    private val favoriteAdapter = GroupAdapter<GroupieViewHolder>()
+    private val favoriteAdapter = GroupAdapter<GroupieViewHolder>().apply {
+        setOnItemClickListener { item, _ ->
+            item as BookItem
+            val directions = FavoriteFragmentDirections.actionFavoriteFragmentToPreviewFragment(item.book)
+            findNavController().navigate(directions)
+        }
+    }
 
     private fun setUpRecyclerview() {
         recyclerView.adapter = favoriteAdapter

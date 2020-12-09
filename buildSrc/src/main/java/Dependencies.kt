@@ -77,6 +77,8 @@ object Deps {
         const val bom = "com.google.firebase:firebase-bom:26.1.0"
         const val firestore = "com.google.firebase:firebase-firestore-ktx"
         const val storage = "com.google.firebase:firebase-storage"
+        const val auth = "com.google.firebase:firebase-auth-ktx"
+
     }
 
     object AndroidX {

@@ -1,10 +1,12 @@
 package com.yvkalume.interactors
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.yvkalume.interactors.util.FirebasePath
 import com.yvkalume.model.domain.Book
 import com.yvkalume.model.presentation.RowGenre
 import com.yvkalume.model.util.toRowGenre
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +15,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 @ExperimentalCoroutinesApi
-class BookInteractor(private val firestore: FirebaseFirestore) {
+class BookInteractor(private val firestore: FirebaseFirestore, private val auth: FirebaseAuth) {
+
+    private val currentUserUid by lazy {
+        auth.currentUser?.uid ?: throw CancellationException("Unauthenticated user !")
+    }
 
     suspend fun getAllBooks() = callbackFlow {
         val query = firestore.collection(FirebasePath.BOOK)
@@ -67,8 +73,19 @@ class BookInteractor(private val firestore: FirebaseFirestore) {
     }
 
     suspend fun getFavoritesEpisodes() = callbackFlow {
-        offer(listOf<Book>())
-        //TODO : get favorites books
+        //TODO : change path
+        val query = firestore.collection("users/$currentUserUid/favorites")
+        query.addSnapshotListener { value, error ->
+            if (error != null || value == null) {
+                close()
+            }
+
+            value?.toObjects(Book::class.java)?.let {
+                if (!isClosedForSend) offer(it)
+            }
+
+        }
+
         awaitClose()
     }
 

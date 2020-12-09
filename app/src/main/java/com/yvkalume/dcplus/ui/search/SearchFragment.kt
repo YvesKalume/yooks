@@ -23,7 +23,9 @@ class SearchFragment : Fragment(R.layout.fragment_search), MavericksView {
         binding.recyclerView.adapter = searchAdapter
     }
 
-    private val searchAdapter = GroupAdapter<GroupieViewHolder>()
+    private val searchAdapter = GroupAdapter<GroupieViewHolder>().apply {
+       
+    }
 
     private fun populateResult(bd: List<Book>){
         searchAdapter.updateAsync(bd.map { BookSearchItem(it) })

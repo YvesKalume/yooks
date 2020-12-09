@@ -27,10 +27,18 @@
         android:id="@+id/searchFragment"
         android:name="com.yvkalume.dcplus.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.yvkalume.dcplus.ui.favorites.FavoriteFragment"
         android:label="Favories"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
+    </fragment>
 </navigation>
