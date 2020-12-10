@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_previewFragment"
+            android:id="@+id/action_preview_fragment"
             app:destination="@id/previewFragment" />
     </fragment>
     <fragment
@@ -29,7 +29,7 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_searchFragment_to_previewFragment"
+            android:id="@+id/action_preview_fragment"
             app:destination="@id/previewFragment" />
     </fragment>
     <fragment
@@ -38,7 +38,7 @@
         android:label="Favories"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favoriteFragment_to_previewFragment"
+            android:id="@+id/action_preview_fragment"
             app:destination="@id/previewFragment" />
     </fragment>
 </navigation>

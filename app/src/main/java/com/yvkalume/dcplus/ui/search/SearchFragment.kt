@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import androidx.navigation.fragment.findNavController
 import com.airbnb.mvrx.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -24,7 +25,11 @@ class SearchFragment : Fragment(R.layout.fragment_search), MavericksView {
     }
 
     private val searchAdapter = GroupAdapter<GroupieViewHolder>().apply {
-       
+       setOnItemClickListener { item, view ->
+           item as BookSearchItem
+           val destinations = SearchFragmentDirections.actionPreviewFragment(item.book)
+           findNavController().navigate(destinations)
+       }
     }
 
     private fun populateResult(bd: List<Book>){

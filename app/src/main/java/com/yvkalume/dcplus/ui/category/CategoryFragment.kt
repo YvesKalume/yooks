@@ -28,7 +28,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category),MavericksView {
     private val categoryAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
             item as BookItem
-            findNavController().navigate(R.id.action_homeFragment_to_previewFragment)
+            findNavController().navigate(R.id.action_preview_fragment)
         }
     }
 

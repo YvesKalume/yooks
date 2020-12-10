@@ -30,7 +30,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
     private val favoriteAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
             item as BookItem
-            val directions = FavoriteFragmentDirections.actionFavoriteFragmentToPreviewFragment(item.book)
+            val directions = FavoriteFragmentDirections.actionPreviewFragment(item.book)
             findNavController().navigate(directions)
         }
     }

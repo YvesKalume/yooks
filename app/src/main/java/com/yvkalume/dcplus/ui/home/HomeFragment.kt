@@ -94,7 +94,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
         return GroupAdapter<GroupieViewHolder>().apply {
             setOnItemClickListener { item, _ ->
                 item as BookItem
-                val directions = HomeFragmentDirections.actionHomeFragmentToPreviewFragment(item.book)
+                val directions = HomeFragmentDirections.actionPreviewFragment(item.book)
                 findNavController().navigate(directions)
             }
         }
