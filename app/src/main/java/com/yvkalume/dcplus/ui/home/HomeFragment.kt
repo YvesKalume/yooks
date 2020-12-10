@@ -26,8 +26,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
     private val binding: FragmentHomeBinding by viewBinding()
 
-    private val sections = arrayListOf<Section>()
-
     private val viewPool = RecyclerView.RecycledViewPool().apply {
         setMaxRecycledViews(0, 0)
     }
@@ -66,17 +64,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
 
     private val sliderAdapter = ImageSliderAdapter()
     private fun populateTrendingList(data: List<Book>) {
+        homeAdapter.clear()
         val trendingSection = Section().apply {
             data.map { sliderAdapter.addItem(it) }
             update(listOf(TrendingSection(sliderAdapter)))
         }
 
-        sections.add(trendingSection)
         homeAdapter.add(trendingSection)
     }
 
     private fun populateGenre(data: List<RowGenre>) {
-
         val genreSection = Section().apply {
             val genreItems = data.map {
                 val episodeItems= it.books.map { episode ->
@@ -90,9 +87,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
             genreAdapter.updateAsync(genreItems)
             update(listOf(GenreSection(genreAdapter,viewPool)))
         }
-
-
-        sections.add(genreSection)
         homeAdapter.add(genreSection)
     }
 
