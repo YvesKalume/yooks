@@ -11,23 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".MainActivity"/>
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-            <meta-data  android:name="com.yvkalume.dcplus.app.initializer.KoinInitializer"
+            <meta-data
+                android:name="com.yvkalume.dcplus.app.initializer.KoinInitializer"
                 android:value="androidx.startup" />
-
-            <meta-data  android:name="com.yvkalume.dcplus.app.initializer.MavericksInitializer"
+            <meta-data
+                android:name="com.yvkalume.dcplus.app.initializer.MavericksInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>
