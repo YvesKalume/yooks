@@ -9,10 +9,10 @@ import com.yvkalume.util.setImageUrl
 
 class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
 
-    private val items = mutableListOf<Book>()
+    private var items = listOf<Book>()
 
-    fun addItem(item: Book) {
-        items.add(item)
+    fun addItem(items: List<Book>) {
+        this.items = items
         notifyDataSetChanged()
     }
 

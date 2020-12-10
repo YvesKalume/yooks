@@ -66,7 +66,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     private fun populateTrendingList(data: List<Book>) {
         homeAdapter.clear()
         val trendingSection = Section().apply {
-            data.map { sliderAdapter.addItem(it) }
+            sliderAdapter.addItem(data)
             update(listOf(TrendingSection(sliderAdapter)))
         }
 
