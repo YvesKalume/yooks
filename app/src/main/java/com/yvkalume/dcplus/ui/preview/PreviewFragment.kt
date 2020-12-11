@@ -25,8 +25,7 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Blurry.with(context).from(binding.bookImg.drawable.toBitmap()).into(binding.backgroundImg)
+        //Blurry.with(context).from(binding.bookImg.drawable.toBitmap()).into(binding.backgroundImg)
 
     }
 
