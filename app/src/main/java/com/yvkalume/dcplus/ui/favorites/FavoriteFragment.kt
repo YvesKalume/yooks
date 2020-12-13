@@ -69,5 +69,4 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
             is Fail -> Unit
         }
     }
-
 }

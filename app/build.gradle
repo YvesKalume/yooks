@@ -21,6 +21,9 @@ android {
     }
 
     defaultConfig {
+        manifestPlaceholders = [pdftronLicenseKey: PDFTRON_LICENSE_KEY]
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.yvkalume.dcplus"
         minSdkVersion App.minSdkVersion
         targetSdkVersion App.targetSdkVersion
@@ -91,6 +94,9 @@ dependencies {
     implementation Deps.Retrofit.coroutinesAdapter
 
     implementation Deps.Mavericks.mvrx
+
+    implementation Deps.PdfTron.pdftron
+    implementation Deps.PdfTron.tools
 
     implementation Deps.Groupie.core
     implementation Deps.Groupie.viewBinding

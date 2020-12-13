@@ -1,11 +1,14 @@
 package com.yvkalume.dcplus.ui.preview
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.navArgs
 import com.airbnb.mvrx.*
+import com.pdftron.pdf.config.ViewerConfig
+import com.pdftron.pdf.controls.DocumentActivity
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.FragmentPreviewBinding
 import com.yvkalume.model.domain.Book
@@ -19,6 +22,9 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnRead.setOnClickListener {
+            read()
+        }
         //Blurry.with(context).from(binding.bookImg.drawable.toBitmap()).into(binding.backgroundImg)
     }
 
@@ -67,6 +73,42 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
             is Success -> bindData(it.previewData.invoke().book)
             is Fail -> Unit
         }
+    }
+
+
+    fun read() {
+//        Todo: put book url
+        val fileLink = Uri.parse(args.book.imageUrl)
+        DocumentActivity.openDocument(requireContext(), fileLink, getDocumentConfig())
+    }
+
+    private fun getDocumentConfig(): ViewerConfig {
+
+        return ViewerConfig.Builder()
+            .fullscreenModeEnabled(false)
+            .multiTabEnabled(false)
+            .documentEditingEnabled(false)
+            .longPressQuickMenuEnabled(true)
+            .showPageNumberIndicator(true)
+            .showBottomNavBar(true)
+            .showThumbnailView(true)
+            .showBookmarksView(false)
+            .toolbarTitle(args.book.title)
+            .showSearchView(true)
+            .showShareOption(false)
+            .showDocumentSettingsOption(false)
+            .showAnnotationToolbarOption(false)
+            .showOpenFileOption(false)
+            .showOpenUrlOption(false)
+            .showEditPagesOption(false)
+            .showPrintOption(false)
+            .showCloseTabOption(true)
+            .showAnnotationsList(false)
+            .showOutlineList(false)
+            .showSaveCopyOption(false)
+            .showUserBookmarksList(false)
+            .openUrlCachePath(requireActivity().cacheDir.absolutePath)
+            .build()
     }
 
 }

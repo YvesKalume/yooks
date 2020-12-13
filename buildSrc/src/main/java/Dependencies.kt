@@ -82,6 +82,12 @@ object Deps {
         const val ui = "com.firebaseui:firebase-ui-auth:6.4.0"
     }
 
+    object PdfTron {
+        private const val version = "7.0.5"
+        const val pdftron = "com.pdftron:pdftron:$version"
+        const val tools = "com.pdftron:tools:$version"
+    }
+
     object AndroidX {
         private const val nav_version = "2.3.1"
 
