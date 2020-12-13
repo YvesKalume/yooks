@@ -29,7 +29,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
 
     private val favoriteAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
-            item as BookItem
+            item as BookHorizontalItem
             val directions = FavoriteFragmentDirections.actionPreviewFragment(item.book)
             findNavController().navigate(directions)
         }
@@ -48,9 +48,8 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite), MavericksView {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val item = favoriteAdapter.getItem(viewHolder.adapterPosition) as BookHorizontalItem
-                Toast.makeText(context, item.book.title,Toast.LENGTH_SHORT).show()
-                favoriteAdapter.notifyItemRemoved(viewHolder.adapterPosition)
-                //TODO : put deletetion confirmation dialogbox
+                viewModel.removeBookFromFavorite(item.book.uid)
+                favoriteAdapter.notifyDataSetChanged()
             }
         }
 

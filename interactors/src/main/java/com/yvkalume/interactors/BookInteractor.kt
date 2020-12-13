@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.tasks.await
 
 @ExperimentalCoroutinesApi
 class BookInteractor(private val firestore: FirebaseFirestore, private val auth: FirebaseAuth) {
@@ -87,6 +88,35 @@ class BookInteractor(private val firestore: FirebaseFirestore, private val auth:
         }
 
         awaitClose()
+    }
+
+    suspend fun isFavorite(uid: String) = callbackFlow {
+        firestore.document("users/$currentUserUid/favorites/$uid")
+            .addSnapshotListener { value, error ->
+                if (error != null || value == null) {
+                    close()
+                }
+
+                if (!isClosedForSend) {
+                    if (value?.exists() == true) {
+                        offer(true)
+                    } else {
+                        offer(false)
+                    }
+                }
+            }
+        awaitClose()
+    }
+
+    suspend fun addToFavorites(book: Book) {
+        firestore.collection("users/$currentUserUid/favorites")
+            .document(book.uid)
+            .set(book).await()
+    }
+
+    suspend fun removeBookFromFavorite(bookUid: String) {
+        firestore.document("users/$currentUserUid/favorites/$bookUid")
+            .delete().await()
     }
 
 

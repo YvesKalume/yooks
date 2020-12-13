@@ -137,7 +137,7 @@
                 android:layout_height="75dp">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/btnAddFavorite"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="16dp"
@@ -160,11 +160,11 @@
                     android:textColor="#fff"
                     app:backgroundTint="@color/blue"
                     app:cornerRadius="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnAddFavorite"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.78"
-                    app:layout_constraintStart_toEndOf="@+id/imageButton"
-                    app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                    app:layout_constraintStart_toEndOf="@+id/btnAddFavorite"
+                    app:layout_constraintTop_toTopOf="@+id/btnAddFavorite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

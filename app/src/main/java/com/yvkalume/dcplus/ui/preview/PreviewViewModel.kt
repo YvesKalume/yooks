@@ -18,5 +18,17 @@ class PreviewViewModel(initialState: PreviewViewState) : MavericksViewModel<Prev
         }.execute {
             copy(previewData = it)
         }
+
+        presenter.isFavorite(uid).execute {
+            copy(isFavorite = it)
+        }
+    }
+
+    fun addToFavorite(book: Book)  = viewModelScope.launch {
+        presenter.addToFavorites(book)
+    }
+
+    fun removeBookFromFavorite(bookUid: String) = viewModelScope.launch {
+        presenter.removeBookFromFavorite(bookUid)
     }
 }

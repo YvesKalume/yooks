@@ -17,4 +17,8 @@ class FavoriteViewModel(initialState: FavoriteViewState) : MavericksViewModel<Fa
             copy(episodes = it)
         }
     }
+
+    fun removeBookFromFavorite(bookUid: String) = viewModelScope.launch {
+        presenter.removeBookFromFavorite(bookUid)
+    }
 }

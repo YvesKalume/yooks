@@ -6,5 +6,6 @@ import com.airbnb.mvrx.Uninitialized
 import com.yvkalume.model.presentation.PreviewData
 
 data class PreviewViewState(
-    val previewData: Async<PreviewData> = Uninitialized
+    val previewData: Async<PreviewData> = Uninitialized,
+    val isFavorite: Async<Boolean> = Uninitialized
 ) : MavericksState
