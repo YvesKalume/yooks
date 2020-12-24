@@ -68,7 +68,7 @@ class BookInteractor(private val firestore: FirebaseFirestore, private val auth:
 
     suspend fun getBooksGroupedByGenre() : Flow<List<RowGenre>> = flow {
         getAllBooks().collect {
-            val genres = it.groupBy(Book::genreTitle).toRowGenre()
+            val genres = it.groupBy(Book::categoryUid).toRowGenre()
             emit(genres)
         }
     }
