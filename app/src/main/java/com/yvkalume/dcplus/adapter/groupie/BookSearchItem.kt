@@ -1,6 +1,7 @@
 package com.yvkalume.dcplus.adapter.groupie
 
 import android.view.View
+import com.google.firebase.storage.FirebaseStorage
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemBookSearchBinding
@@ -11,7 +12,9 @@ class BookSearchItem(val book: Book) : BindableItem<ItemBookSearchBinding>() {
     override fun bind(viewBinding: ItemBookSearchBinding, position: Int) {
         viewBinding.run {
             title.text = book.title
-            appCompatImageView.setImageUrl(book.imageUrl)
+            FirebaseStorage.getInstance().getReferenceFromUrl(book.imageUrl).downloadUrl.addOnSuccessListener {
+                appCompatImageView.setImageUrl(it.toString())
+            }
         }
     }
 

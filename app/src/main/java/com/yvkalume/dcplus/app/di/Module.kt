@@ -29,7 +29,7 @@ val interactorModule = module {
 
 @ExperimentalCoroutinesApi
 val presenterModule = module {
-    single { HomePresenter(get()) }
+    single { HomePresenter(get(),get()) }
     single { SearchPresenter(get()) }
     single { FavoritePresenter(get()) }
     single { CategoryPresenter(get()) }

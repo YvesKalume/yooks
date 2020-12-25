@@ -1,6 +1,8 @@
 package com.yvkalume.dcplus.adapter.groupie
 
+import android.util.Log
 import android.view.View
+import com.google.firebase.storage.FirebaseStorage
 import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.dcplus.R
 import com.yvkalume.dcplus.databinding.ItemBookHorizontalBinding
@@ -11,7 +13,9 @@ class BookHorizontalItem(val book: Book) : BindableItem<ItemBookHorizontalBindin
     override fun bind(viewBinding: ItemBookHorizontalBinding, position: Int) {
         viewBinding.run {
             title.text = book.title
-            roundedImageView.setImageUrl(book.imageUrl)
+            FirebaseStorage.getInstance().getReferenceFromUrl(book.imageUrl).downloadUrl.addOnSuccessListener {
+                roundedImageView.setImageUrl(it.toString())
+            }
         }
     }
 

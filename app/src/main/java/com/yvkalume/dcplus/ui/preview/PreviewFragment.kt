@@ -7,6 +7,7 @@ import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.navArgs
 import com.airbnb.mvrx.*
+import com.google.firebase.storage.FirebaseStorage
 import com.pdftron.pdf.config.ViewerConfig
 import com.pdftron.pdf.controls.DocumentActivity
 import com.yvkalume.dcplus.R
@@ -41,7 +42,9 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
 
     private fun bindData(book: Book) {
         binding.run {
-            bookImg.setImageUrl(book.imageUrl)
+            FirebaseStorage.getInstance().getReferenceFromUrl(book.imageUrl).downloadUrl.addOnSuccessListener {
+                bookImg.setImageUrl(it.toString())
+            }
             bookTitle.text = book.title
         }
     }
@@ -78,8 +81,10 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
 
     fun read() {
 //        Todo: put book url
-        val fileLink = Uri.parse(args.book.imageUrl)
-        DocumentActivity.openDocument(requireContext(), fileLink, getDocumentConfig())
+        FirebaseStorage.getInstance().getReferenceFromUrl(args.book.pdfUrl).downloadUrl.addOnSuccessListener {
+            val fileLink = it
+            DocumentActivity.openDocument(requireContext(), fileLink, getDocumentConfig())
+        }
     }
 
     private fun getDocumentConfig(): ViewerConfig {

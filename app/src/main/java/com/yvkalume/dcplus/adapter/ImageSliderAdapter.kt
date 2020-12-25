@@ -2,6 +2,7 @@ package com.yvkalume.dcplus.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.google.firebase.storage.FirebaseStorage
 import com.smarteist.autoimageslider.SliderViewAdapter
 import com.yvkalume.dcplus.databinding.ItemTrendingBinding
 import com.yvkalume.model.domain.Book
@@ -28,7 +29,9 @@ class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
     override fun onBindViewHolder(viewHolder: CustomViewHolder, position: Int) {
         val binding = viewHolder.binding as ItemTrendingBinding
         //TODO : getItem Image Url
-        binding.imageView.setImageUrl(items[position].imageUrl)
+        FirebaseStorage.getInstance().getReferenceFromUrl(items[position].imageUrl).downloadUrl.addOnSuccessListener {
+            binding.imageView.setImageUrl(it.toString())
+        }
         binding.executePendingBindings()
     }
 }
