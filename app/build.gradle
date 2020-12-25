@@ -24,7 +24,7 @@ android {
         manifestPlaceholders = [pdftronLicenseKey: PDFTRON_LICENSE_KEY]
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.yvkalume.dcplus"
+        applicationId "com.yvkalume.yooks"
         minSdkVersion App.minSdkVersion
         targetSdkVersion App.targetSdkVersion
         versionCode 1
