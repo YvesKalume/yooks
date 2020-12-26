@@ -9,6 +9,10 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="SiginTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="background">@drawable/splash_image</item>
+    </style>
+
     <style name="CustomAppThemePdfReader" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

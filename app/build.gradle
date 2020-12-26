@@ -65,9 +65,6 @@ dependencies {
     implementation Deps.AndroidX.constraintLayout
     implementation Deps.AndroidX.legacy
     implementation Deps.AndroidX.startup
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation Deps.AndroidX.Test.junit
     androidTestImplementation Deps.AndroidX.Test.ext
     androidTestImplementation Deps.AndroidX.Test.Espresso.core
