@@ -12,7 +12,7 @@ import com.pdftron.pdf.controls.DocumentActivity
 import com.yvkalume.yooks.R
 import com.yvkalume.yooks.databinding.FragmentPreviewBinding
 import com.yvkalume.model.domain.Book
-import com.yvkalume.util.setImageUrl
+import com.yvkalume.yooks.util.setImageUrl
 
 
 class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {

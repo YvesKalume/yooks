@@ -6,7 +6,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.smarteist.autoimageslider.SliderViewAdapter
 import com.yvkalume.yooks.databinding.ItemTrendingBinding
 import com.yvkalume.model.domain.Book
-import com.yvkalume.util.setImageUrl
+import com.yvkalume.yooks.util.setImageUrl
 
 class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
 

@@ -6,7 +6,7 @@ import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.yooks.R
 import com.yvkalume.yooks.databinding.ItemBookSearchBinding
 import com.yvkalume.model.domain.Book
-import com.yvkalume.util.setImageUrl
+import com.yvkalume.yooks.util.setImageUrl
 
 class BookSearchItem(val book: Book) : BindableItem<ItemBookSearchBinding>() {
     override fun bind(viewBinding: ItemBookSearchBinding, position: Int) {

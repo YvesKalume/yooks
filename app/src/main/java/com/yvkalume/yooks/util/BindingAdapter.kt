@@ -1,4 +1,4 @@
-package com.yvkalume.util
+package com.yvkalume.yooks.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

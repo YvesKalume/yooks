@@ -6,7 +6,7 @@ import com.xwray.groupie.viewbinding.BindableItem
 import com.yvkalume.yooks.R
 import com.yvkalume.yooks.databinding.ItemBookHorizontalBinding
 import com.yvkalume.model.domain.Book
-import com.yvkalume.util.setImageUrl
+import com.yvkalume.yooks.util.setImageUrl
 
 class BookHorizontalItem(val book: Book) : BindableItem<ItemBookHorizontalBinding>() {
     override fun bind(viewBinding: ItemBookHorizontalBinding, position: Int) {
