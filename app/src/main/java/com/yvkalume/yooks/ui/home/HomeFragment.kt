@@ -58,7 +58,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
     private val genreAdapter = GroupAdapter<GroupieViewHolder>().apply {
         setOnItemClickListener { item, _ ->
             if (item is GenreItem)
-                Toast.makeText(context,"${item.genreTitle}",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, item.genreTitle,Toast.LENGTH_SHORT).show()
         }
     }
 

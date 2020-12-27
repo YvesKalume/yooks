@@ -1,4 +1,4 @@
-package com.yvkalume.yooks
+package com.yvkalume.yooks.activity.main
 
 import androidx.lifecycle.ViewModel
 import com.yvkalume.interactors.UserInteractor
