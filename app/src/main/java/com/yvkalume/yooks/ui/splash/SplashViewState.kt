@@ -6,5 +6,4 @@ import com.airbnb.mvrx.Uninitialized
 
 data class SplashViewState(
     val isAuthUser : Async<Boolean> = Uninitialized,
-    val message : Async<String> = Uninitialized
 ) : MavericksState

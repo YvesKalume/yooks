@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.airbnb.mvrx.*
 import com.google.firebase.storage.FirebaseStorage
@@ -70,6 +71,7 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
     }
 
     override fun invalidate() = withState(viewModel) {
+        binding.loader.isVisible = it.previewData is Loading
         when(it.previewData) {
             is Loading -> Unit
             is Success -> bindData(it.previewData.invoke().book)

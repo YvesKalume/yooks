@@ -37,6 +37,7 @@ object Deps {
     const val blurry = "jp.wasabeef:blurry:4.0.0"
     const val blurBehind = "no.danielzeller.blurbehindlib:blurbehindlib:1.0.0"
     const val imageSlider = "com.github.smarteist:autoimageslider:1.4.0"
+    const val lottie = "com.airbnb.android:lottie:3.5.0"
 
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"

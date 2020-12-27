@@ -26,7 +26,8 @@ class SplashViewModel(initialState: SplashViewState) : MavericksViewModel<Splash
     }
     fun signIn(account: GoogleSignInAccount) = viewModelScope.launch {
         presenter.signIn(account).execute {
-            copy(message = it)
+            checkAuthentication()
+            copy(isAuthUser = it)
         }
     }
 }

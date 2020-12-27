@@ -53,16 +53,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash), MavericksView {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.onAsync(
-            asyncProp = SplashViewState::message,
-            onSuccess = {
-                Toast.makeText(requireContext(),it,Toast.LENGTH_LONG).show()
-            }
-        )
-    }
-
     private fun signInWithGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -81,6 +71,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash), MavericksView {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 viewModel.signIn(account)
+                binding.loader.isVisible = true
 
                 Log.d("SplashScreenActivity", "firebaseAuthWithGoogle:" + account.id)
             } catch (e: ApiException) {

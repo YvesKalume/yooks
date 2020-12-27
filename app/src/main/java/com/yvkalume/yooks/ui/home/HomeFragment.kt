@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.mvrx.*
@@ -20,6 +21,7 @@ import com.yvkalume.yooks.adapter.groupie.TrendingSection
 import com.yvkalume.yooks.databinding.FragmentHomeBinding
 import com.yvkalume.model.domain.Book
 import com.yvkalume.model.presentation.RowGenre
+import com.yvkalume.yooks.util.runLayoutAnimation
 
 
 class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
@@ -40,14 +42,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), MavericksView {
         recyclerView.setHasFixedSize(true)
         recyclerView.setItemViewCacheSize(100)
         recyclerView.setRecycledViewPool(viewPool)
+        recyclerView.runLayoutAnimation()
     }
 
     override fun invalidate() = withState(viewModel) {
+        binding.loader.isVisible = it.homeData is Loading
         when(it.homeData) {
-            is Loading -> Unit
             is Success -> {
                 populateTrendingList(it.homeData.invoke().trending)
                 populateGenre(it.homeData.invoke().rowGenre)
+                binding.recyclerView.isVisible = true
             }
             is Fail -> Unit
         }

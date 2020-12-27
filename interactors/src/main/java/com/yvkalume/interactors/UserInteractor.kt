@@ -34,11 +34,11 @@ class UserInteractor(private val firestore: FirebaseFirestore, private val fireb
         val user = User(account.id.toString(),account.displayName, account.photoUrl.toString())
         saveUser(user)
             .addOnCompleteListener {
-
+                if (!isClosedForSend) offer(true)
             }
             .addOnFailureListener {
                 firebaseAuth.currentUser?.delete()
-                if (!isClosedForSend) offer("Une Erreur s'est produite")
+                if (!isClosedForSend) offer(false)
             }
         awaitClose()
     }

@@ -106,6 +106,7 @@ dependencies {
     implementation Deps.viewBinding
     implementation Deps.blurry
     implementation Deps.imageSlider
+    implementation Deps.lottie
 }
 
 apply plugin: 'com.google.gms.google-services'
