@@ -1,5 +1,6 @@
 package com.yvkalume.yooks.ui.preview
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -80,12 +81,9 @@ class PreviewFragment : Fragment(R.layout.fragment_preview), MavericksView {
     }
 
 
-    fun read() {
-//        Todo: put book url
-        FirebaseStorage.getInstance().getReferenceFromUrl(args.book.pdfUrl).downloadUrl.addOnSuccessListener {
-            val fileLink = it
-            DocumentActivity.openDocument(requireContext(), fileLink, getDocumentConfig())
-        }
+    private fun read() {
+         val fileLink = Uri.parse(args.book.pdfUrl)
+        DocumentActivity.openDocument(requireContext(), fileLink, getDocumentConfig())
     }
 
     private fun getDocumentConfig(): ViewerConfig {
