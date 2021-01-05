@@ -29,9 +29,7 @@ class ImageSliderAdapter : SliderViewAdapter<CustomViewHolder>() {
     override fun onBindViewHolder(viewHolder: CustomViewHolder, position: Int) {
         val binding = viewHolder.binding as ItemTrendingBinding
         //TODO : getItem Image Url
-        FirebaseStorage.getInstance().getReferenceFromUrl(items[position].imageUrl).downloadUrl.addOnSuccessListener {
-            binding.imageView.setImageUrl(it.toString())
-        }
+        binding.imageView.setImageUrl(items[position].imageUrl)
         binding.executePendingBindings()
     }
 }

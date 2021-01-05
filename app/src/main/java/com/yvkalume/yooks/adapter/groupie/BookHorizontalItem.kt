@@ -12,9 +12,7 @@ class BookHorizontalItem(val book: Book) : BindableItem<ItemBookHorizontalBindin
     override fun bind(viewBinding: ItemBookHorizontalBinding, position: Int) {
         viewBinding.run {
             title.text = book.title
-            FirebaseStorage.getInstance().getReferenceFromUrl(book.imageUrl).downloadUrl.addOnSuccessListener {
-                roundedImageView.setImageUrl(it.toString())
-            }
+            roundedImageView.setImageUrl(book.imageUrl)
         }
     }
 

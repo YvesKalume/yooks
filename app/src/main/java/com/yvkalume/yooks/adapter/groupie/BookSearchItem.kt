@@ -12,9 +12,7 @@ class BookSearchItem(val book: Book) : BindableItem<ItemBookSearchBinding>() {
     override fun bind(viewBinding: ItemBookSearchBinding, position: Int) {
         viewBinding.run {
             title.text = book.title
-            FirebaseStorage.getInstance().getReferenceFromUrl(book.imageUrl).downloadUrl.addOnSuccessListener {
-                appCompatImageView.setImageUrl(it.toString())
-            }
+            appCompatImageView.setImageUrl(book.imageUrl)
         }
     }
 
